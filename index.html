@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Script Matcher</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <style type="text/css">
+    body {
+      font-family: sans-serif;
+    }
+    #main {
+      padding: 10px;
+    }
+    table {
+      border: 2px solid darkgray;
+      border-spacing: 0;
+    }
+    td {
+      border: 1px solid darkgray;
+      padding: 10px;
+      font-size: 14px;
+    }
+    label {
+      display: block;
+      margin: 30px 0;
+    }
+    input:not([type="checkbox"]) {
+      display: block;
+      margin: 20px 0;
+    }
+    .text-fields-wrap {
+      display: none;
+    }
+    .results-wrap {
+      display: none;
+    }
+    .loader {
+      display: none
+    }
+  </style>
+</head>
+<body>
+  <div id="main">
+    <section class="form-wrap">
+      <h1>Script Matcher</h1>
+      <form id="form" action="" method="">
+        <label for="script">Script (.csv)</label>
+        <input type="file" name="csvfile" id="script" accept=".csv" required>
+        <label for="subtitles">Subtitles (.srt)</label>
+        <input type="file" name="srtfile" id="subtitles" accept=".srt" required>
+        <input type="checkbox" name="spreadsheet" id="spreadsheet-checkbox">Add to Google Sheets.
+        <div class="text-fields-wrap">
+          <label>New sheet name: *</label>
+          <input type="text" name="spreadsheet-name" id="spreadsheet-name">
+          <label>Google Script url: *</label>
+          <input type="text" name="url" id="spreadsheet-url">
+        </div>
+        <input type="submit">
+      </form>
+    </section>
+    <section class="results-wrap">
+      <h1 class="total">Total matches: <span></span></h1>
+      <button type="button" id="reset">Reset</button>
+      <table id="results"></table>
+    </section>
+    <section class="loader">
+      <h2>Matching...</h2>
+    </section>
+  </div>
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/fuzzyset.js"></script>
+  <script type="text/javascript" src="js/TextMatcher.js"></script>
+  <script type="text/javascript" src="js/Parser.js"></script>
+  <script type="text/javascript" src="js/ScriptMatcher.js"></script>
+</body>
+</html>
