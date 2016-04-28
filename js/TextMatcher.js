@@ -115,7 +115,7 @@ TextMatcher.prototype.exportToSpreadsheet = function() {
   }
   $.ajax({
     type: 'POST',
-    url: spreadsheetScript,
+    url: this.url,
     data: JSON.stringify({'sheetName': this.spreadsheetName, 'headers': this.headersArray, 'scripts': this.scriptArray}),
     dataType: 'json',
     success: function(response) {
